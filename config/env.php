@@ -1,6 +1,6 @@
 <?php
 
-    namespace Config\Env;
+    namespace Config;
 
     class ENV {
 
