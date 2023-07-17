@@ -9,5 +9,3 @@
     app::errorHandler(404, function(){
         echo "404 Page not found!."; 
     });
-
-?>
