@@ -1,0 +1,5 @@
+/vendor
+bug.txt
+message.txt
+.env
+composer.lock

@@ -1,0 +1,19 @@
+{
+    "name": "soyer/soyer",
+    "type": "project",
+    "description": "The application for the PMSoyer framework.",
+    "keywords": ["framework", "PMSoyer Framework", "PMSoyer"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/",
+            "Database\\": "database/"
+        }
+    },
+    "require": {
+        "soyer/framework": "dev-main"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
