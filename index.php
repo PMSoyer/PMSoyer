@@ -8,11 +8,20 @@
     // Load Composer's autoloader
     require __DIR__.'/vendor/autoload.php';
 
-    // Load Web router //
+    // Load Web router | default | can load router file in "__DIR__ . /routes/*.php" only
     $routers = glob(__DIR__ . '/routes/*.php');
     foreach ($routers as $router) {
         require $router;
     }
+
+    // // Load Web router | load from subfolder | can load router file in "__DIR__ . /routes/*.php" or "__DIR__ . /routes/other_dir/*.php"
+    // $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__ . '/routes'));
+    // foreach ($iterator as $file) {
+    //     if ($file->isFile() && $file->getExtension() === 'php') {
+    //         require $file->getPathname();
+    //     }
+    // }
+
 
 
     /*
