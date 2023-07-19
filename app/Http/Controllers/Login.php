@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
 
-use App\Models\LoginModel;
+    use Soyer\Http\Request;
 
-class Login {
+    use App\Models\LoginModel;
 
-    public static function request(){
-        return json_encode(["service" => "login"]);
+    class Login {
+
+        public static function request(){
+            $_SESSION["name"] = (Request::$form["input_name"] == null ? "PMSoyer" : Request::$form["input_name"]);
+            redirect("/dashboard");
+        }
+
     }
-
-}

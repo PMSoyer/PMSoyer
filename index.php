@@ -30,8 +30,8 @@
     |--------------------------------------------------------------------------
     */
 
-    use Soyer\PMSoyer as app;
-    use Soyer\Http\Request as request;
+    use Soyer\PMSoyer;
+    use Soyer\Http\Request;
 
-    request::handleRequest();
-    app::listen(request::$path, request::$method);
+    Request::handleRequest();
+    PMSoyer::listen(request::$path, request::$method);

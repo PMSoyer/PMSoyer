@@ -1,7 +1,7 @@
 <?php
 
-    use Soyer\PMSoyer as app;
+    use Soyer\PMSoyer;
 
-    app::route("/ping", ["POST"], function(){
+    PMSoyer::route("/ping", ["POST"], function(){
         return jsonify(["msg" => "pong"], 200);
     });
