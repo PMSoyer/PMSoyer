@@ -11,9 +11,9 @@
             "Database\\": "database/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "soyer/framework": "dev-main"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
