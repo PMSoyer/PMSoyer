@@ -12,7 +12,8 @@
         }
     },
     "require": {
-        "soyer/framework": "dev-main"
+        "soyer/framework": "dev-main",
+        "vlucas/phpdotenv": "^5.5"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

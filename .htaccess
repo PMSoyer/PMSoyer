@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Block access to .php files in all subdirectories of App except App/index.php
+    RewriteRule ^(?!index\.php).*\.php$ - [F]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

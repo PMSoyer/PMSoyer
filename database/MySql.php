@@ -17,7 +17,12 @@
 
 
         public function __construct() {
-            # code...
+            # update database connect from .env
+            self::$host = $_ENV['MYSQL_HOST'];
+            self::$port = intval($_ENV['MYSQL_PORT']);
+            self::$user = $_ENV['MYSQL_USER'];
+            self::$pass = $_ENV['MYSQL_PASS'];
+            self::$dbname = $_ENV['MYSQL_NAME'];
         }
     
 

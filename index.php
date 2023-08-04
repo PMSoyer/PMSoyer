@@ -21,6 +21,10 @@
     }
 
 
+    // load env
+    Dotenv\Dotenv::createImmutable(__DIR__)->load();
+
+
     /*
     |--------------------------------------------------------------------------
     | Run The Application
