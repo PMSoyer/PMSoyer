@@ -16,7 +16,7 @@
         private static $con = null;
 
 
-        public function __construct() {
+        function __construct() {
             # update database connect from .env
             self::$host = $_ENV['MYSQL_HOST'];
             self::$port = intval($_ENV['MYSQL_PORT']);

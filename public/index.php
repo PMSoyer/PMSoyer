@@ -10,10 +10,10 @@
     error_reporting(E_ALL); // show all error  | E_ALL = Show all / 0 off show
 
 
-    require __DIR__.'/vendor/autoload.php';
+    require __DIR__.'/../vendor/autoload.php';
 
 
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__ . '/routes'));
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__ . '/../routes'));
     foreach ($iterator as $file) {
         if ($file->isFile() && $file->getExtension() === 'php') {
             require $file->getPathname();
@@ -22,7 +22,7 @@
 
 
     // load env
-    Dotenv\Dotenv::createImmutable(__DIR__)->load();
+    Dotenv\Dotenv::createImmutable(__DIR__ . "/../")->load();
 
 
     /*
