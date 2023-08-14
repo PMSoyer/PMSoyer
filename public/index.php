@@ -35,4 +35,4 @@
     use Soyer\Http\Request;
 
     Request::handleRequest();
-    PMSoyer::listen(request::$path, request::$method);
+    PMSoyer::listen(Request::$path, Request::$method);
