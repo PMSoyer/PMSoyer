@@ -23,6 +23,7 @@
 
     // load env
     Dotenv\Dotenv::createImmutable(__DIR__ . "/../")->load();
+    $_ENV["HOME_PATH"] = __DIR__ . "/../";
 
 
     /*
