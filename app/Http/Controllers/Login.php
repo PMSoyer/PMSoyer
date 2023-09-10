@@ -4,7 +4,6 @@
 
     use Soyer\Http\Request;
 
-    use App\Models\LoginModel;
 
     class Login {
 
