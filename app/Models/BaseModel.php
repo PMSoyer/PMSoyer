@@ -83,7 +83,7 @@
                 if (is_string($this -> params[$i])) {
                     $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_STR);
                 } else {
-                    $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_INT);
+                    $this -> query_exec -> bindValue($i + 1, $this -> params[$i]);
                 }
             }
             $this -> query_exec -> execute();
@@ -98,7 +98,7 @@
                 if (is_string($this -> params[$i])) {
                     $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_STR);
                 } else {
-                    $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_INT);
+                    $this -> query_exec -> bindValue($i + 1, $this -> params[$i]);
                 }
             }
             $this -> params = []; // reset params
