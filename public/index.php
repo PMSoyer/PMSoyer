@@ -13,12 +13,12 @@
     require __DIR__.'/../vendor/autoload.php';
 
 
-    // load env
-    Dotenv\Dotenv::createImmutable(__DIR__ . "/../")->load();
+    // set env
     $_ENV["HOME_PATH"] = __DIR__ . "/../";
+    Dotenv\Dotenv::createImmutable($_ENV["HOME_PATH"])->load();
 
 
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__ . '/../routes'));
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($_ENV["HOME_PATH"] . 'routes'));
     foreach ($iterator as $file) {
         if ($file->isFile() && $file->getExtension() === 'php') {
             require $file->getPathname();

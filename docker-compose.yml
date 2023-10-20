@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+
+    soyer-app:
+        build: .
+        ports:
+            - "80:3000"
+        networks:
+            - default
+
+networks:
+    default:
+        driver: bridge
