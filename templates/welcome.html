@@ -11,20 +11,92 @@
 
 
 {% block content %}
-    <div class="container d-flex align-items-center justify-content-center text-center">
-
-        <div class="row" data-aos="fade-up">
-            <div class="col-lg-12 col-md-8 mx-auto">
-                <img src="{{ asset('assets', 'favicon.ico') }}" alt="logo" width="135px">
-                <h1 class="display-5 fw-bold">{{ title }}</h1>
-                <p class="lead text-muted">PMSoyer is a small, easy-to-use web application framework, Inspired by Python Flask.</p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-2">
-                    <a type="button" href="/dashboard" class="btn btn-primary btn-lg px-4 gap-3">Dashboard</a>
-                    <a type="button" href="#" onclick="alert('Soon...')" class="btn btn-outline-secondary btn-lg px-4">Get Started</a>
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+                                <img class="header-logo-image" src="{{ asset('assets', 'images/logo.svg') }}" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
 
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <h1 class="hero-title mt-0">PMSoyer Framework</h1>
+                            <p class="hero-paragraph">PMSoyer is a lightweight and easy to use PHP web framework. It is suitable for developers who are transitioning to building websites using the MVC architecture.</p>
+                            <div class="hero-cta">
+                                <a id="getStartBtn" class="button button-primary" href="#">Get Started</a>
+                                <a id="docsBtn" class="button" href="#">Documentation</a>
+                            </div>
+                        </div>
+                        <div class="hero-figure anime-element">
+                            <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                                <rect width="528" height="396" style="fill:transparent;" />
+                            </svg>
+                            <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                            <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                            <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+                            <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                            <div class="hero-figure-box hero-figure-box-05"></div>
+                            <div class="hero-figure-box hero-figure-box-06"></div>
+                            <div class="hero-figure-box hero-figure-box-07"></div>
+                            <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                            <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                            <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+                        <a href="#">
+                            <img class="header-logo-image" src="{{ asset('assets', 'images/logo.svg') }}" alt="Logo">
+                        </a>
+                    </div>
+                    <ul class="footer-links list-reset">
+                        <li>
+                            <a href="#">About us</a>
+                        </li>
+                        <li>
+                            <a href="#">Documentation</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-social-links list-reset">
+                        <li>
+                            <a href="https://www.facebook.com/PhuminMaliwan" target="_blank">
+                                <span class="screen-reader-text">Facebook</span>
+                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#0270D7"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/PMSoyer" target="_blank">
+                                <span class="screen-reader-text">Github</span>
+                                <!-- get from Bootstrap Icons -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0270D7" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">&copy; 2023 PMSoyer, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
     </div>
 {% endblock %}
 
@@ -34,5 +106,14 @@
     <!-- <script src="https://cdn.com/file.css"></script> -->
     <script>
         /* write javascript code */
+
+        getStartBtn.addEventListener("click", (event) => {
+            alert("Coming Soon")
+        })
+
+        docsBtn.addEventListener("click", (event) => {
+            alert("Coming Soon")
+        })
+
     </script>
 {% endblock %}
