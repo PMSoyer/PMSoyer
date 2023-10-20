@@ -3,40 +3,15 @@
     use Soyer\PMSoyer;
     use Soyer\Http\Request;
 
-
-    use App\Http\Controllers\Login;
-    use App\Http\Middleware\Authenticate;
-
+    use App\Http\Middleware\Example as MidExample;
 
 
     PMSoyer::route('/', ["GET", "POST"], function() {
         return render_template('welcome.html', ['title' => 'The PMSoyer Framework.']);
-    });
+    }, [ MidExample::class ]);
 
 
-    PMSoyer::route('/logout', ["GET", "POST"], function() {
-        unset($_SESSION["name"]);
-        redirect("/login");
-    });
-
-
-    PMSoyer::route('/login', ["GET", "POST"], function() {
-        if (Authenticate::isLogin()) redirect("/dashboard");
-        if (Request::$method == "POST") Login::request();
-        return render_template('login.html');
-    });
-
-
-    PMSoyer::route("/dashboard", ["GET"], function(){
-        return render_template("dashboard.html", ['name' => $_SESSION["name"]]);
-    }, [ Authenticate::class ]);
-
-    
-    PMSoyer::errorHandler(401, function(){
-        return render_template('error/401.html');
-    });
-
-    
-    PMSoyer::errorHandler(404, function(){
-        return render_template('error/404.html');
-    });
+    // // custom error response
+    // PMSoyer::errorHandler(404, function(){
+    //     return render_template("404.html"); // please create 404.html file in templates directory
+    // });

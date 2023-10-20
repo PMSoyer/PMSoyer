@@ -4,7 +4,7 @@
 
     use App\Models\BaseModel;
 
-    class Account extends BaseModel {
+    class Example extends BaseModel {
 
         public $__table__ = "my_table_name";
 

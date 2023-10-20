@@ -2,6 +2,9 @@
 
     use Soyer\PMSoyer;
 
-    PMSoyer::route("/ping", ["POST"], function(){
-        return jsonify(["msg" => "pong"], 200);
-    });
+    use App\Http\Middleware\Example as MidExample;
+    use App\Http\Controllers\Example as ConExample;
+
+    PMSoyer::route("/ping", ["GET", "POST"], function(){
+        return ConExample::handle();
+    }, [ MidExample::class ]);
