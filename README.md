@@ -22,6 +22,12 @@
 This is a PHP Web framework, Quick and easy to use.
 
 
+## Create Project
+```shell
+composer create soyer/soyer MyAppName -s dev
+```
+
+
 ## Donate
 <p>
     <a href="https://github.com/sponsors/mantvmass">
