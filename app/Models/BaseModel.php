@@ -10,6 +10,7 @@
 
     use Database\MySql;
     use PDO;
+    use PDOException;
 
     class BaseModel extends MySql {
 
@@ -18,11 +19,13 @@
         private string $stmt;
         private array $params = [];
         private $query_exec;
+        private PDO $pdo;
 
 
         public function __construct($table) {
             $this -> __table__ = $table;
-            parent::__construct();
+            parent::__construct(); // update parent constructor
+            $this -> pdo = $this -> connect();
         }
 
 
@@ -78,7 +81,7 @@
 
 
         public function executeWith() {
-            $this -> query_exec = $this -> connect() -> prepare($this -> stmt);
+            $this -> query_exec = $this -> pdo -> prepare($this -> stmt);
             for($i = 0; $i < count($this -> params); $i++){
                 if (is_string($this -> params[$i])) {
                     $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_STR);
@@ -95,7 +98,7 @@
 
 
         public function execute() {
-            $this -> query_exec = $this -> connect() -> prepare($this -> stmt);
+            $this -> query_exec = $this -> pdo -> prepare($this -> stmt);
             for($i = 0; $i < count($this -> params); $i++){
                 if (is_string($this -> params[$i])) {
                     $this -> query_exec -> bindValue($i + 1, $this -> params[$i], PDO::PARAM_STR);
@@ -117,6 +120,38 @@
 
         public function findAll(){
             return $this -> query_exec -> fetchAll(PDO::FETCH_ASSOC); // return result
+        }
+
+
+        public function beginTransaction(){
+            $this -> pdo -> beginTransaction();
+            return $this;
+        }
+    
+
+        public function commit(){
+            $this -> pdo -> commit();
+            return $this;
+        }
+    
+
+        public function rollBack(){
+            $this -> pdo -> rollBack();
+            return $this;
+        }
+
+
+        public function executeTransaction(){
+            try {
+                $this->pdo->beginTransaction();
+    
+                $this->execute(); // Or use executeWith() method if needed
+    
+                $this->pdo->commit();
+            } catch (PDOException $e) {
+                $this->pdo->rollBack();
+                throw $e; // Propagate the exception after rolling back the transaction
+            }
         }
 
 
