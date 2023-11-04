@@ -168,6 +168,10 @@
         }
 
 
+        public function cursor(): PDO {
+            return $this -> pdo; //return pdo instance
+        }
+
 
         public function getStatement(){
             echo $this -> stmt . "\n";
