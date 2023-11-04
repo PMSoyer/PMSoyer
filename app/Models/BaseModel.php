@@ -152,7 +152,21 @@
                 $this->pdo->rollBack();
                 throw $e; // Propagate the exception after rolling back the transaction
             }
+            // // example for use executeTransaction
+            // try {
+            //     $db->beginTransaction();
+            //     // Insert operation 1
+            //     $result1 = $db->CustomStmt("INSERT INTO table1 (column1, column2) VALUES (?, ?)", ['value1', 'value2'])->executeTransaction();
+            //     // Insert operation 2
+            //     $result2 = $db->CustomStmt("INSERT INTO table2 (columnA, columnB) VALUES (?, ?)", ['valueA', 'valueB'])->executeTransaction();
+            //     $db->commit();
+            //     echo "Transaction successfully executed.";
+            // } catch (PDOException $e) {
+            //     $db->rollBack();
+            //     echo "Transaction failed: " . $e->getMessage();
+            // }
         }
+
 
 
         public function getStatement(){
