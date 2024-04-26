@@ -1,11 +1,26 @@
-version: '3.9'
+version: "3.9"
 
 services:
 
     soyer-app:
         build: .
+        image: pmsoyer:latest
+        container_name: soyer-app
+        volumes:
+            - .:/var/www
+        networks:
+            - default
+
+    webserver:
+        image: nginx:1.25.1-alpine
+        container_name: webserver
+        volumes:
+            - ./public/docker/nginx.conf:/etc/nginx/conf.d/default.conf
+            - .:/var/www
         ports:
-            - "80:3000"
+            - 8080:80
+        depends_on:
+            - soyer-app
         networks:
             - default
 

@@ -3,3 +3,5 @@ bug.txt
 message.txt
 composer.lock
 test_statement.php
+public/test.php
+public/test

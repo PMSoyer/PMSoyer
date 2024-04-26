@@ -1,17 +1,28 @@
-# Use an official PHP runtime as a parent image
-FROM php:7.4
+FROM php:7.4-fpm-alpine
 
-# Set the working directory
-WORKDIR /application
+RUN apk update && apk add \
+    wget \
+    vim \
+    git \
+    tzdata
 
-# Copy your PHP application files into the container
-COPY . .
+ENV TZ="UTC"
 
-# Install the PDO extension for MySQL
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql opcache && docker-php-ext-enable pdo_mysql
 
-# Expose port 3000 for the PHP built-in server
-EXPOSE 3000
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Command to run the PHP built-in server
-CMD ["php", "-S", "0.0.0.0:3000", "-t", "public"]
+RUN addgroup -g 1000 -S www && \
+    adduser -u 1000 -S www -G www
+
+COPY public/docker/php.ini /usr/local/etc/php/conf.d/php.ini
+
+COPY --chown=www:www . /var/www
+
+WORKDIR /var/www
+
+RUN composer install
+
+EXPOSE 9000
+
+CMD ["php-fpm"]
