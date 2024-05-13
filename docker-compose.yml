@@ -6,8 +6,8 @@ services:
         build: .
         image: pmsoyer:latest
         container_name: soyer-app
-        volumes:
-            - .:/var/www
+        # volumes:               # cannot mount volume !!!
+        #     - .:/var/www       # cannot mount volume !!!
         networks:
             - default
 
